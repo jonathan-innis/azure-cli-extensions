@@ -4,12 +4,14 @@
 # --------------------------------------------------------------------------------------------
 
 import re
-from knack.util import CLIError
+from azure.cli.core.azclierror import InvalidArgumentValueError
 
 
 def validate_configuration_type(configuration_type):
     if configuration_type.lower() != 'sourcecontrolconfiguration':
-        raise CLIError('Invalid configuration-type.  Valid value is "sourceControlConfiguration"')
+        raise InvalidArgumentValueError(
+            'Invalid configuration-type',
+            'Try specifying the valid value "sourceControlConfiguration"')
 
 def validate_configuration_name(namespace):
     if namespace.name:
@@ -25,7 +27,10 @@ def validate_operator_instance_name(namespace):
 
 def __validate_k8s_name(param_value, param_name, max_len):
     if len(param_value) > max_len:
-        raise CLIError('Invalid {0} parameter. Valid {0}s can be a maximum of {1} characters'.format(param_name, max_len))
+        raise InvalidArgumentValueError(
+            'Invalid {0} parameter. Valid {0}s can be a maximum of {1} characters'.format(param_name, max_len),
+            'Try shortening the length of your {0}'.format(param_name))
     if not re.match(r'^[a-z0-9]([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*$', param_value):
-        raise CLIError('Invalid {0} parameter. Valid {0}s must match with the regex [a-z0-9]'
-            '([-a-z0-9]*[a-z0-9])?(\.[a-z0-9]([-a-z0-9]*[a-z0-9])?)*'.format(param_name))
+        raise InvalidArgumentValueError(
+            'Invalid {0} parameter. Valid {0}s can only contain lowercase alphanumeric characters and hyphens'.format(param_name),
+            'Try checking that your {0} only contains these characters'.format(param_name))
