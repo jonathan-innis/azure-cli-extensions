@@ -43,29 +43,29 @@ jobs:
         kubectl version --client
       displayName: "Setup the VM with helm3 and kubectl" 
     
-    - task: UsePythonVersion@0
-      displayName: 'Use Python 3.6'
-      inputs:
-        versionSpec: 3.6
-    - bash: |
-        set -ev
+    # - task: UsePythonVersion@0
+    #   displayName: 'Use Python 3.6'
+    #   inputs:
+    #     versionSpec: 3.6
+    # - bash: |
+    #     set -ev
 
-        # prepare and activate virtualenv
-        pip install virtualenv
-        python3 -m venv env/
-        source env/bin/activate
+    #     # prepare and activate virtualenv
+    #     pip install virtualenv
+    #     python3 -m venv env/
+    #     source env/bin/activate
 
-        # clone azure-cli
-        pip install azdev
+    #     # clone azure-cli
+    #     pip install azdev
 
-        ls $(CLI_REPO_PATH)
+    #     ls $(CLI_REPO_PATH)
 
-        azdev --version
-        azdev setup -r $(CLI_REPO_PATH) -e $(EXTENSION_NAME)
-        azdev extension build $(EXTENSION_NAME)
+    #     azdev --version
+    #     azdev setup -r $(CLI_REPO_PATH) -e $(EXTENSION_NAME)
+    #     azdev extension build $(EXTENSION_NAME)
 
-      workingDirectory: $(CLI_REPO_PATH)
-      displayName: "Setup and Build $(EXTENSION_NAME) with azdev"
+    #   workingDirectory: $(CLI_REPO_PATH)
+    #   displayName: "Setup and Build $(EXTENSION_NAME) with azdev"
     
     - bash: |
         # K8S_EXTENSION_VERSION=$(ls $(EXTENSION_NAME)* | cut -d "-" -f2)
@@ -117,8 +117,8 @@ jobs:
 
     - task: PublishTestResults@2
       inputs:
-        testResultsFormat: 'NUnit'
-        testResultsFiles: '**/testResults.xml'
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/TestResults.xml'
         failTaskOnFailedTests: true
         continueOnError: true
 
