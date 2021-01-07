@@ -55,6 +55,13 @@ jobs:
         versionSpec: 3.6
     - bash: |
         set -ev
+
+        # prepare and activate virtualenv
+        pip install virtualenv
+        python3 -m venv env/
+        source env/bin/activate
+
+        # clone azure-cli
         pip install azdev
 
         ls $(CLI_REPO_PATH)
@@ -88,7 +95,17 @@ jobs:
         cat JSON_STRING > settings.json
         cat settings.json
       workingDirectory: $(K8S_EXTENSION_REPO_PATH)
-      displayName: "Generate a settings.json file based on extension value"
+      displayName: "Generate a settings.json file"
+
+    # - task: AzureCLI@2
+    #   displayName: Azure CLI
+    #   inputs:
+    #     azureSubscription: <Name of the Azure Resource Manager service connection>
+    #     scriptType: ps
+    #     scriptLocation: inlineScript
+    #     inlineScript: |
+    #       az login
+    #       az account show
 
     # - powershell:
         
