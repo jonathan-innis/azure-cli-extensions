@@ -1,3 +1,10 @@
+resources:
+  repositories:
+  - repository: K8sPartnerExtensionTest # The name used to reference this repository in the checkout step
+    type: github
+    endpoint: K8sPartnerExtension
+    name: One/compute-HybridMgmt-K8sPartnerExtensionTest
+
 trigger:
   branches:
     include:
@@ -13,7 +20,7 @@ jobs:
     vmImage: 'ubuntu-16.04'
   steps:
     - checkout: self
-    - checkout: git://One/compute-HybridMgmt-K8sPartnerExtensionTest
+    - checkout: K8sPartnerExtensionTest
     
     - task: UsePythonVersion@0
       displayName: 'Use Python 3.6'
