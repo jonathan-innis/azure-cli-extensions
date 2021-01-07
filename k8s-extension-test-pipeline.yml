@@ -91,7 +91,7 @@ jobs:
                          --arg AKS_CLUSTER_NAME "$AKS_CLUSTER_NAME" \
                          --arg ARC_CLUSTER_NAME "$ARC_CLUSTER_NAME" \
                          --arg K8S_EXTENSION_VERSION "$K8S_EXTENSION_VERSION" \
-                         '{subscriptionId: $SUB_ID, resourceGroup: $RG, aksClusterName: $AKS_CLUSTER_NAME, arcClusterName: $ARC_CLUSTER_NAME, extensionVersion: {k8s-extension: $K8S_EXTENSION_VERSION, connectedk8s: "0.3.5"}}')
+                         '{subscriptionId: $SUB_ID, resourceGroup: $RG, aksClusterName: $AKS_CLUSTER_NAME, arcClusterName: $ARC_CLUSTER_NAME, extensionVersion: {"k8s-extension": $K8S_EXTENSION_VERSION, connectedk8s: "0.3.5"}}')
         cat JSON_STRING > settings.json
         cat settings.json
       workingDirectory: $(K8S_EXTENSION_REPO_PATH)
