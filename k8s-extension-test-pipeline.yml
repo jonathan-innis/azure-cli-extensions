@@ -101,7 +101,7 @@ jobs:
       displayName: Azure CLI
       inputs:
         azureSubscription: K8sPartnerExtensionCLI
-        scriptType: ps
+        scriptType: bash
         scriptLocation: inlineScript
         inlineScript: |
           az login
