@@ -29,6 +29,19 @@ jobs:
   steps:
     - checkout: self
     - checkout: K8sPartnerExtensionTest
+
+    - bash: |
+        echo "Installing helm3"
+        curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+        chmod 700 get_helm.sh
+        ./get_helm.sh
+
+        echo "Installing kubectl"
+        curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+        chmod +x ./kubectl
+        sudo mv ./kubectl /usr/local/bin/kubectl
+        kubectl version --client
+      displayName: "Setup the VM with helm3 and kubectl" 
     
     - task: UsePythonVersion@0
       displayName: 'Use Python 3.6'
@@ -96,7 +109,7 @@ jobs:
         scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
-          .\Test.ps1
+          .\Test.ps1 -IsPipeline
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
 
     - task: AzureCLI@2
