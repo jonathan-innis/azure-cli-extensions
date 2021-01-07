@@ -30,7 +30,7 @@ parameters:
 variables:
   K8S_EXTENSION_REPO_PATH: $(Agent.BuildDirectory)/s/compute-HybridMgmt-K8sPartnerExtensionTest
   CLI_REPO_PATH: $(Agent.BuildDirectory)/s/azure-cli-extensions
-  EXTENSION_NAME: "k8sconfiguraiton"
+  EXTENSION_NAME: "k8sconfiguration"
   SUBSCRIPTION_ID: ${{ parameters.subscriptionId }}
   TENANT_ID: ${{ parameters.tenantId }}
   CLIENT_ID: ${{ parameters.clientId }}
