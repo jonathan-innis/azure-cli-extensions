@@ -42,10 +42,14 @@ jobs:
         pip install azdev
 
         azdev --version
-        azdev setup -c $(K8sExtensionTestPath) -e k8s-extension
+        azdev setup -c $(CLIPath) -e k8s-extension
         azdev extension build k8s-extension
 
-        ls $(K8sExtensionTestPath)
+        ls $(CLIPath)
 
-      workingDirectory: $(K8sExtensionTestPath)
-      displayName: "Setup and build k8s-extension with azdev"
+      workingDirectory: $(CLIPath)
+      displayName: "Setup and Build k8s-extension with azdev"
+    
+    - bash: |
+        cp dist/* $(K8sExtensionTestPath)/extensions
+      workingDirectory: $(CLIPath)
