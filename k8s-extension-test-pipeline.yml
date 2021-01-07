@@ -76,9 +76,11 @@ jobs:
       displayName: "Copy the Built .whl to Extension Test Path"
 
     - bash: |
-        RAND_STR=$(((RANDOM % 1000000)+ 1))
-        AKS_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-aks"
-        ARC_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-arc"
+        RAND_STR=$RANDOM
+        # AKS_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-aks"
+        # ARC_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-arc"
+        AKS_CLUSTER_NAME="testcluster"
+        ARC_CLUSTER_NAME="testcluster-arc"
 
         JSON_STRING=$(jq -n \
                          --arg SUB_ID "$SUBSCRIPTION_ID" \
@@ -111,6 +113,7 @@ jobs:
         inlineScript: |
           .\Test.ps1 -CI
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
+        continueOnError: true
 
     - task: PublishTestResults@2
       inputs:
@@ -119,12 +122,12 @@ jobs:
         failTaskOnFailedTests: true
         continueOnError: true
 
-    - task: AzureCLI@2
-      displayName: Cleanup the Clusters
-      inputs:
-        azureSubscription: K8sPartnerExtensionCLI
-        scriptType: pscore
-        scriptLocation: inlineScript
-        inlineScript: |
-          .\Cleanup.ps1
-        workingDirectory: $(K8S_EXTENSION_REPO_PATH)
+    # - task: AzureCLI@2
+    #   displayName: Cleanup the Clusters
+    #   inputs:
+    #     azureSubscription: K8sPartnerExtensionCLI
+    #     scriptType: pscore
+    #     scriptLocation: inlineScript
+    #     inlineScript: |
+    #       .\Cleanup.ps1
+    #     workingDirectory: $(K8S_EXTENSION_REPO_PATH)
