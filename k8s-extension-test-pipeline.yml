@@ -97,15 +97,12 @@ jobs:
       workingDirectory: $(K8S_EXTENSION_REPO_PATH)
       displayName: "Generate a settings.json file"
 
-    # - task: AzureCLI@2
-    #   displayName: Azure CLI
-    #   inputs:
-    #     azureSubscription: <Name of the Azure Resource Manager service connection>
-    #     scriptType: ps
-    #     scriptLocation: inlineScript
-    #     inlineScript: |
-    #       az login
-    #       az account show
-
-    # - powershell:
-        
+    - task: AzureCLI@2
+      displayName: Azure CLI
+      inputs:
+        azureSubscription: K8sPartnerExtensionCLI
+        scriptType: ps
+        scriptLocation: inlineScript
+        inlineScript: |
+          az login
+          az account show
