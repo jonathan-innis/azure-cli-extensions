@@ -45,7 +45,7 @@ jobs:
         ls $(CLI_REPO_PATH)
 
         azdev --version
-        azdev setup -r $(CLI_REPO_PATH) -e 
+        azdev setup -r $(CLI_REPO_PATH) -e $(EXTENSION_NAME)
         azdev extension build $(EXTENSION_NAME)
 
       workingDirectory: $(CLI_REPO_PATH)
@@ -54,3 +54,12 @@ jobs:
     - bash: |
         cp dist/* $(K8S_EXTENSION_REPO_PATH)/extensions
       workingDirectory: $(CLI_REPO_PATH)
+      displayName: "Copy the Built .whl to Extension Test Path"
+
+    # - bash: |
+
+    #   workingDirectory $(K8S_EXTENSION_REPO_PATH)
+    #   displayName: "Generate a settings.json file based on extension value"
+
+    # - powershell:
+        
