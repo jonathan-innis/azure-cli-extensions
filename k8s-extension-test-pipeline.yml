@@ -76,7 +76,7 @@ jobs:
       displayName: "Copy the Built .whl to Extension Test Path"
 
     - bash: |
-        RAND_STR=$(((RANDOM % 10000)+ 1))
+        RAND_STR=$(((RANDOM % 1000000)+ 1))
         AKS_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-aks"
         ARC_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-arc"
 
@@ -109,7 +109,7 @@ jobs:
         scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
-          .\Test.ps1 -IsPipeline
+          .\Test.ps1 -CI
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
 
     - task: PublishTestResults@2
