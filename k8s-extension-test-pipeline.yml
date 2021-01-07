@@ -17,7 +17,7 @@ variables:
   K8S_EXTENSION_REPO_PATH: $(Agent.BuildDirectory)/s/compute-HybridMgmt-K8sPartnerExtensionTest
   CLI_REPO_PATH: $(Agent.BuildDirectory)/s/azure-cli-extensions
   EXTENSION_NAME: "k8sconfiguration"
-  SUBSCRIPTION_ID: "37524548-5887-4df0-a359-38a687fdb3bc"
+  SUBSCRIPTION_ID: "15c06b1b-01d6-407b-bb21-740b8617dea3"
   RESOURCE_GROUP: "K8sPartnerExtensionTest"
   BASE_CLUSTER_NAME: "k8s-extension-cluster"
 
