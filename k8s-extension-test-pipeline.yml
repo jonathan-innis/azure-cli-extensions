@@ -101,7 +101,7 @@ jobs:
       displayName: Azure CLI
       inputs:
         azureSubscription: K8sPartnerExtensionCLI
-        scriptType: bash/pscore
+        scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
           Install-Module Pester -Force -SkipPublisherCheck
