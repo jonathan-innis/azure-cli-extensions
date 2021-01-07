@@ -86,7 +86,6 @@ jobs:
         scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
-          az config set extension.use_dynamic_install=yes_without_prompt 
           .\Bootstrap.ps1
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
     
@@ -97,7 +96,6 @@ jobs:
         scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
-          az config set extension.use_dynamic_install=yes_without_prompt
           .\Test.ps1
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
 
@@ -108,6 +106,5 @@ jobs:
         scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
-          az config set extension.use_dynamic_install=yes_without_prompt
           .\Cleanup.ps1
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
