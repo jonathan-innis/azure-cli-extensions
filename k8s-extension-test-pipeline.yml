@@ -22,7 +22,7 @@ variables:
   BASE_CLUSTER_NAME: "k8s-extension-cluster"
 
 jobs:
-- job: K8sExtensionIntegrationTest 
+- job: Setup Testing Environment 
   displayName: "k8-extension Integration Test Suite"
   pool:
     vmImage: 'ubuntu-16.04'
@@ -111,6 +111,13 @@ jobs:
         inlineScript: |
           .\Test.ps1 -IsPipeline
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
+
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFormat: 'NUnit'
+        testResultsFiles: '**/testResults.xml'
+        failTaskOnFailedTests: true
+        continueOnError: true
 
     - task: AzureCLI@2
       displayName: Cleanup the Clusters
