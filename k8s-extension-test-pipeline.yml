@@ -82,8 +82,8 @@ jobs:
 
     - bash: |
         RAND_STR=$(((RANDOM % 10000)+ 1))
-        AKS_CLUSTER_NAME=$(BASE_CLUSTER_NAME)-$(RAND_STR)-aks
-        ARC_CLUSTER_NAME=$(BASE_CLUSTER_NAME)-$(RAND_STR)-arc
+        AKS_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-aks"
+        ARC_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-arc"
 
         JSON_STRING=$(jq -n \
                          --arg SUB_ID "$SUBSCRIPTION_ID" \
