@@ -18,7 +18,7 @@ variables:
   CLI_REPO_PATH: $(Agent.BuildDirectory)/s/azure-cli-extensions
   EXTENSION_NAME: "k8sconfiguration"
   SUBSCRIPTION_ID: "15c06b1b-01d6-407b-bb21-740b8617dea3"
-  RESOURCE_GROUP: "K8sPartnerExtensionTest"
+  RESOURCE_GROUP: "DevTestingAgent"
   BASE_CLUSTER_NAME: "k8s-extension-cluster"
 
 jobs:
