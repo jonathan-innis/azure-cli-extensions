@@ -13,30 +13,13 @@ trigger:
     exclude:
     - README.md
 
-parameters:
-  - name: subscriptionId
-    type: string
-    default: '37524548-5887-4df0-a359-38a687fdb3bc'
-  - name: tenantId
-    type: string
-    default: '72f988bf-86f1-41af-91ab-2d7cd011db47'
-  - name: clientId
-    type: string
-    default: '0646c919-c502-4038-9ac6-37de3ec23b50'
-  - name: clientSecret
-    type: string
-    default: ''
-
 variables:
   K8S_EXTENSION_REPO_PATH: $(Agent.BuildDirectory)/s/compute-HybridMgmt-K8sPartnerExtensionTest
   CLI_REPO_PATH: $(Agent.BuildDirectory)/s/azure-cli-extensions
   EXTENSION_NAME: "k8sconfiguration"
-  SUBSCRIPTION_ID: ${{ parameters.subscriptionId }}
-  TENANT_ID: ${{ parameters.tenantId }}
-  CLIENT_ID: ${{ parameters.clientId }}
-  CLIENT_SECRET: ${{ parameters.clientSecret }}
+  SUBSCRIPTION_ID: "37524548-5887-4df0-a359-38a687fdb3bc"
 
-  RESOURCE_GROUP: "DevTestingAgent"
+  RESOURCE_GROUP: "K8sPartnerExtensionTest"
   BASE_CLUSTER_NAME: "k8s-extension-cluster"
   K8S_EXTENSION_VERSION: "0.3.0"
 
@@ -98,11 +81,12 @@ jobs:
       displayName: "Generate a settings.json file"
 
     - task: AzureCLI@2
-      displayName: Azure CLI
+      displayName: Run the Test Suite
       inputs:
         azureSubscription: K8sPartnerExtensionCLI
-        scriptType: bash/pscore
+        scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
           Install-Module Pester -Force -SkipPublisherCheck
           Import-Module Pester -PassThru
+          .\Test.ps1
