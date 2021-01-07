@@ -80,13 +80,31 @@ jobs:
       displayName: "Generate a settings.json file"
 
     - task: AzureCLI@2
+      displayName: Bootstrap the Clusters
+      inputs:
+        azureSubscription: K8sPartnerExtensionCLI
+        scriptType: pscore
+        scriptLocation: inlineScript
+        inlineScript: |
+          .\Bootstrap.ps1
+        workingDirectory: $(K8S_EXTENSION_REPO_PATH)
+    
+    - task: AzureCLI@2
       displayName: Run the Test Suite
       inputs:
         azureSubscription: K8sPartnerExtensionCLI
         scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
-          Install-Module Pester -Force -SkipPublisherCheck
-          Import-Module Pester -PassThru
           .\Test.ps1
+        workingDirectory: $(K8S_EXTENSION_REPO_PATH)
+
+    - task: AzureCLI@2
+      displayName: Cleanup the Clusters
+      inputs:
+        azureSubscription: K8sPartnerExtensionCLI
+        scriptType: pscore
+        scriptLocation: inlineScript
+        inlineScript: |
+          .\Cleanup.ps1
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
