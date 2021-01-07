@@ -67,15 +67,17 @@ jobs:
     #   workingDirectory: $(CLI_REPO_PATH)
     #   displayName: "Setup and Build $(EXTENSION_NAME) with azdev"
     
-    - bash: |
-        # K8S_EXTENSION_VERSION=$(ls $(EXTENSION_NAME)* | cut -d "-" -f2)
-        K8S_EXTENSION_VERSION="0.1.0"
-        echo "##vso[task.setvariable variable=K8S_EXTENSION_VERSION]$K8S_EXTENSION_VERSION"
-        # cp * $(K8S_EXTENSION_REPO_PATH)/extensions
-      workingDirectory: $(CLI_REPO_PATH)/dist
-      displayName: "Copy the Built .whl to Extension Test Path"
+    # - bash: |
+    #     # K8S_EXTENSION_VERSION=$(ls $(EXTENSION_NAME)* | cut -d "-" -f2)
+    #     K8S_EXTENSION_VERSION="0.1.0"
+    #     echo "##vso[task.setvariable variable=K8S_EXTENSION_VERSION]$K8S_EXTENSION_VERSION"
+    #     cp * $(K8S_EXTENSION_REPO_PATH)/extensions
+    #   workingDirectory: $(CLI_REPO_PATH)/dist
+    #   displayName: "Copy the Built .whl to Extension Test Path"
 
     - bash: |
+        K8S_EXTENSION_VERSION="0.1.0"
+        echo "##vso[task.setvariable variable=K8S_EXTENSION_VERSION]$K8S_EXTENSION_VERSION"
         RAND_STR=$RANDOM
         # AKS_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-aks"
         # ARC_CLUSTER_NAME="${BASE_CLUSTER_NAME}-${RAND_STR}-arc"
