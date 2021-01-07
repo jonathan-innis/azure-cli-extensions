@@ -14,8 +14,8 @@ trigger:
     - README.md
 
 variables:
-  K8sExtensionTestPath: $(Agent.BuildDirectory)/compute-HybridMgmt-K8sPartnerExtensionTest
-  CLIPath: $(Agent.BuildDirectory)/azure-cli-extensions
+  K8sExtensionTestPath: $(Agent.BuildDirectory)/s/compute-HybridMgmt-K8sPartnerExtensionTest
+  CLIPath: $(Agent.BuildDirectory)/s/azure-cli-extensions
 
 jobs:
 - job: K8sExtensionIntegrationTest 
