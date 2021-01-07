@@ -44,7 +44,7 @@ jobs:
         ls $(CLIPath)
 
         azdev --version
-        azdev setup -c $(CLIPath) -e k8s-extension
+        azdev setup -r $(CLIPath) -e k8s-extension
         azdev extension build k8s-extension
 
       workingDirectory: $(CLIPath)
