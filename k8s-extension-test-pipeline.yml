@@ -22,8 +22,8 @@ variables:
   BASE_CLUSTER_NAME: "k8s-extension-cluster"
 
 jobs:
-- job: Setup Testing Environment 
-  displayName: "k8-extension Integration Test Suite"
+- job: K8sExtensionTestSuite
+  displayName: "Run K8sPartnerExtension Test Suite"
   pool:
     vmImage: 'ubuntu-16.04'
   steps:
