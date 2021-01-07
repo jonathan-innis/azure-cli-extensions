@@ -101,8 +101,8 @@ jobs:
       displayName: Azure CLI
       inputs:
         azureSubscription: K8sPartnerExtensionCLI
-        scriptType: bash
+        scriptType: pwsh
         scriptLocation: inlineScript
         inlineScript: |
-          az login
-          az account show
+          Install-Module Pester -Force -SkipPublisherCheck
+          Import-Module Pester -PassThru
