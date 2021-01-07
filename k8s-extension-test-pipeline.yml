@@ -13,10 +13,33 @@ trigger:
     exclude:
     - README.md
 
+parameters:
+  - name: subscriptionId
+    type: string
+    default: '37524548-5887-4df0-a359-38a687fdb3bc'
+  - name: tenantId
+    type: string
+    default: '72f988bf-86f1-41af-91ab-2d7cd011db47'
+  - name: clientId
+    type: string
+    default: '0646c919-c502-4038-9ac6-37de3ec23b50'
+  - name: clientSecret
+    type: string
+    default: ''
+
 variables:
   K8S_EXTENSION_REPO_PATH: $(Agent.BuildDirectory)/s/compute-HybridMgmt-K8sPartnerExtensionTest
   CLI_REPO_PATH: $(Agent.BuildDirectory)/s/azure-cli-extensions
   EXTENSION_NAME: "k8sconfiguraiton"
+  SUBSCRIPTION_ID: ${{ parameters.subscriptionId }}
+  TENANT_ID: ${{ parameters.tenantId }}
+  CLIENT_ID: ${{ parameters.clientId }}
+  CLIENT_SECRET: ${{ parameters.clientSecret }}
+
+  RESOURCE_GROUP: "DevTestingAgent"
+  AKS_CLUSTER_NAME: "test-cluster-aks"
+  ARC_CLUSTER_NAME: "test-cluster-arc"
+  K8S_EXTENSION_VERSION: "0.3.0"
 
 jobs:
 - job: K8sExtensionIntegrationTest 
@@ -49,17 +72,25 @@ jobs:
         azdev extension build $(EXTENSION_NAME)
 
       workingDirectory: $(CLI_REPO_PATH)
-      displayName: "Setup and Build k8s-extension with azdev"
+      displayName: "Setup and Build $(EXTENSION_NAME) with azdev"
     
     - bash: |
         cp dist/* $(K8S_EXTENSION_REPO_PATH)/extensions
       workingDirectory: $(CLI_REPO_PATH)
       displayName: "Copy the Built .whl to Extension Test Path"
 
-    # - bash: |
-
-    #   workingDirectory $(K8S_EXTENSION_REPO_PATH)
-    #   displayName: "Generate a settings.json file based on extension value"
+    - bash: |
+        JSON_STRING=$(jq -n \
+                         --arg SUB_ID "$SUBSCRIPTION_ID" \
+                         --arg RG "$RESOURCE_GROUP" \
+                         --arg AKS_CLUSTER_NAME "$AKS_CLUSTER_NAME" \
+                         --arg ARC_CLUSTER_NAME "$ARC_CLUSTER_NAME" \
+                         --arg K8S_EXTENSION_VERSION "$K8S_EXTENSION_VERSION" \
+                         '{subscriptionId: $SUB_ID, resourceGroup: $RG, aksClusterName: $AKS_CLUSTER_NAME, arcClusterName: $ARC_CLUSTER_NAME, extensionVersion: {k8s-extension: $K8S_EXTENSION_VERSION, connectedk8s: 0.3.5}}')
+        cat JSON_STRING > settings.json
+        cat settings.json
+      workingDirectory $(K8S_EXTENSION_REPO_PATH)
+      displayName: "Generate a settings.json file based on extension value"
 
     # - powershell:
         
