@@ -1,7 +1,7 @@
 resources:
   repositories:
-  - repository: K8sPartnerExtensionTest # The name used to reference this repository in the checkout step
-    type: github
+  - repository: K8sPartnerExtensionTest
+    type: git
     endpoint: K8sPartnerExtension
     name: One/compute-HybridMgmt-K8sPartnerExtensionTest
 
