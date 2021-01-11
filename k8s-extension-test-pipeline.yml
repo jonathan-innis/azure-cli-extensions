@@ -101,7 +101,6 @@ jobs:
         inlineScript: |
           .\Bootstrap.ps1
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
-        continueOnError: true
     
     - task: AzureCLI@2
       displayName: Run the Test Suite
@@ -119,7 +118,7 @@ jobs:
         testResultsFormat: 'JUnit'
         testResultsFiles: '**/TestResults.xml'
         failTaskOnFailedTests: true
-        continueOnError: true
+      condition: succeededOrFailed()
 
     - task: AzureCLI@2
       displayName: Cleanup the Clusters
@@ -130,3 +129,4 @@ jobs:
         inlineScript: |
           .\Cleanup.ps1
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
+      condition: succeededOrFailed()
