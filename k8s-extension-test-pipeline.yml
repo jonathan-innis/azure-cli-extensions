@@ -101,6 +101,7 @@ jobs:
         inlineScript: |
           .\Bootstrap.ps1
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
+        continueOnError: true
     
     - task: AzureCLI@2
       displayName: Run the Test Suite
@@ -120,12 +121,12 @@ jobs:
         failTaskOnFailedTests: true
         continueOnError: true
 
-    # - task: AzureCLI@2
-    #   displayName: Cleanup the Clusters
-    #   inputs:
-    #     azureSubscription: K8sPartnerExtensionCLI
-    #     scriptType: pscore
-    #     scriptLocation: inlineScript
-    #     inlineScript: |
-    #       .\Cleanup.ps1
-    #     workingDirectory: $(K8S_EXTENSION_REPO_PATH)
+    - task: AzureCLI@2
+      displayName: Cleanup the Clusters
+      inputs:
+        azureSubscription: K8sPartnerExtensionCLI
+        scriptType: pscore
+        scriptLocation: inlineScript
+        inlineScript: |
+          .\Cleanup.ps1
+        workingDirectory: $(K8S_EXTENSION_REPO_PATH)
