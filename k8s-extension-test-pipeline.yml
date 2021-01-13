@@ -99,7 +99,7 @@ jobs:
         scriptType: pscore
         scriptLocation: inlineScript
         inlineScript: |
-          .\Bootstrap.ps1
+          .\Bootstrap.ps1 -CI
         workingDirectory: $(K8S_EXTENSION_REPO_PATH)
     
     - task: AzureCLI@2
