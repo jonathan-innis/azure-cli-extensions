@@ -80,16 +80,19 @@ def create_k8sconfiguration(client, resource_group_name, cluster_name, name, rep
         helm_operator_properties.chart_version = helm_operator_chart_version.strip()
         helm_operator_properties.chart_values = helm_operator_params.strip()
 
-    protected_settings = get_protected_settings(ssh_private_key, ssh_private_key_file, https_user, https_key)
+    protected_settings = validate_and_get_protected_settings(ssh_private_key, ssh_private_key_file, https_user, https_key)
     knownhost_data = get_data_from_key_or_file(ssh_known_hosts, ssh_known_hosts_file)
-    if knownhost_data != '':
+    if knownhost_data:
         validate_known_hosts(knownhost_data)
 
     # Flag which parameters have been set and validate these settings against the set repository url
     ssh_private_key_set = ssh_private_key != '' or ssh_private_key_file != ''
-    ssh_known_hosts_set = knownhost_data != ''
+    known_hosts_contents_set = knownhost_data != ''
     https_auth_set = https_user != '' and https_key != ''
-    validate_url_with_params(repository_url, ssh_private_key_set, ssh_known_hosts_set, https_auth_set)
+    validate_url_with_params(repository_url, 
+                             ssh_private_key_set=ssh_private_key_set, 
+                             known_hosts_contents_set=known_hosts_contents_set, 
+                             https_auth_set=https_auth_set)
 
     # Create sourceControlConfiguration object
     source_control_configuration = SourceControlConfiguration(repository_url=repository_url,
@@ -124,37 +127,36 @@ def update_k8sconfiguration(client, resource_group_name, cluster_name, name, clu
 
     config = client.get(resource_group_name, cluster_rp, cluster_type, cluster_name,
                         source_control_configuration_name)
-
     update_yes = False
 
     # Set input values, if they are supplied
     if repository_url is not None:
-        config['repository_url'] = repository_url
+        config.repository_url = repository_url
         update_yes = True
 
     if operator_params is not None:
-        config['operator_params'] = operator_params
+        config.operator_params = operator_params
         update_yes = True
 
     knownhost_data = get_data_from_key_or_file(ssh_known_hosts, ssh_known_hosts_file)
-    if knownhost_data != '':
+    if knownhost_data:
         validate_known_hosts(knownhost_data)
-        config['ssh_known_hosts_contents'] = knownhost_data
+        config.ssh_known_hosts_contents = knownhost_data
         update_yes = True
 
     if enable_helm_operator is not None:
-        config['enable_helm_operator'] = enable_helm_operator
+        config.enable_helm_operator = enable_helm_operator
         update_yes = True
 
     # Get the helm operator properties from the config and set them
-    helm_operator_properties = config.get('helm_operator_properties', dict())
+    if config.helm_operator_properties is None:
+        config.helm_operator_properties = HelmOperatorProperties()
     if helm_operator_chart_version is not None:
-        helm_operator_properties['chart_version'] = helm_operator_chart_version.strip()
+        config.helm_operator_properties.chart_version = helm_operator_chart_version.strip()
         update_yes = True
     if helm_operator_params is not None:
-        helm_operator_properties['chart_values'] = helm_operator_params.strip()
+        config.helm_operator_properties.chart_values = helm_operator_params.strip()
         update_yes = True
-    config['helm_operator_properties'] = helm_operator_properties
 
     if update_yes is False:
         raise RequiredArgumentMissingError(
@@ -162,8 +164,11 @@ def update_k8sconfiguration(client, resource_group_name, cluster_name, name, clu
             'Verify that at least one changed parameter is provided in the update command')
 
     # Flag which parameters have been set and validate these settings against the set repository url
-    ssh_known_hosts_set = config['ssh_known_hosts_contents'] != ""
-    validate_url_with_params(config['repository_url'], False, ssh_known_hosts_set, False)
+    known_hosts_contents_set = config.ssh_known_hosts_contents != ""
+    validate_url_with_params(config.repository_url, 
+                             ssh_private_key_set=False, 
+                             known_hosts_contents_set=known_hosts_contents_set, 
+                             https_auth_set=False)
 
     config = client.create_or_update(resource_group_name, cluster_rp, cluster_type, cluster_name,
                                      source_control_configuration_name, config)
@@ -188,7 +193,7 @@ def delete_k8sconfiguration(client, resource_group_name, cluster_name, name, clu
     return client.delete(resource_group_name, cluster_rp, cluster_type, cluster_name, source_control_configuration_name)
 
 
-def get_protected_settings(ssh_private_key, ssh_private_key_file, https_user, https_key):
+def validate_and_get_protected_settings(ssh_private_key, ssh_private_key_file, https_user, https_key):
     protected_settings = {}
     ssh_private_key_data = get_data_from_key_or_file(ssh_private_key, ssh_private_key_file)
 
