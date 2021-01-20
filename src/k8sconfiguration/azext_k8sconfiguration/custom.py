@@ -56,7 +56,7 @@ def show_k8sconfiguration(client, resource_group_name, cluster_name, name, clust
 
 # pylint: disable=too-many-locals
 def create_k8sconfiguration(client, resource_group_name, cluster_name, name, repository_url, scope, cluster_type,
-                            operator_instance_name=None, operator_namespace='default', helm_operator_version='1.2.0',
+                            operator_instance_name=None, operator_namespace='default', helm_operator_chart_version='1.2.0',
                             operator_type='flux', operator_params='', ssh_private_key='', ssh_private_key_file='',
                             https_user='', https_key='', ssh_known_hosts='', ssh_known_hosts_file='',
                             enable_helm_operator=None, helm_operator_params=''):
@@ -75,10 +75,9 @@ def create_k8sconfiguration(client, resource_group_name, cluster_name, name, rep
 
     # Create helmOperatorProperties object
     helm_operator_properties = None
-
     if enable_helm_operator:
         helm_operator_properties = HelmOperatorProperties()
-        helm_operator_properties.chart_version = helm_operator_version.strip()
+        helm_operator_properties.chart_version = helm_operator_chart_version.strip()
         helm_operator_properties.chart_values = helm_operator_params.strip()
 
     protected_settings = get_protected_settings(ssh_private_key, ssh_private_key_file, https_user, https_key)
@@ -113,7 +112,7 @@ def create_k8sconfiguration(client, resource_group_name, cluster_name, name, rep
 
 def update_k8sconfiguration(client, resource_group_name, cluster_name, name, cluster_type,
                             repository_url=None, operator_params=None, ssh_known_hosts='',
-                            ssh_known_hosts_file='', enable_helm_operator=None, helm_operator_version=None,
+                            ssh_known_hosts_file='', enable_helm_operator=None, helm_operator_chart_version=None,
                             helm_operator_params=None):
     """Update an existing Kubernetes Source Control Configuration.
 
@@ -124,7 +123,7 @@ def update_k8sconfiguration(client, resource_group_name, cluster_name, name, clu
     source_control_configuration_name = name.strip()
 
     config = client.get(resource_group_name, cluster_rp, cluster_type, cluster_name,
-                        source_control_configuration_name).as_dict()
+                        source_control_configuration_name)
 
     update_yes = False
 
@@ -147,13 +146,15 @@ def update_k8sconfiguration(client, resource_group_name, cluster_name, name, clu
         config['enable_helm_operator'] = enable_helm_operator
         update_yes = True
 
-    if helm_operator_version is not None:
-        config['helm_operator_version'] = helm_operator_version
+    # Get the helm operator properties from the config and set them
+    helm_operator_properties = config.get('helm_operator_properties', dict())
+    if helm_operator_chart_version is not None:
+        helm_operator_properties['chart_version'] = helm_operator_chart_version.strip()
         update_yes = True
-
     if helm_operator_params is not None:
-        config['helm_operator_params'] = helm_operator_params
+        helm_operator_properties['chart_values'] = helm_operator_params.strip()
         update_yes = True
+    config['helm_operator_properties'] = helm_operator_properties
 
     if update_yes is False:
         raise RequiredArgumentMissingError(
@@ -161,7 +162,7 @@ def update_k8sconfiguration(client, resource_group_name, cluster_name, name, clu
             'Verify that at least one changed parameter is provided in the update command')
 
     # Flag which parameters have been set and validate these settings against the set repository url
-    ssh_known_hosts_set = 'ssh_known_hosts_contents' in config
+    ssh_known_hosts_set = config['ssh_known_hosts_contents'] != ""
     validate_url_with_params(config['repository_url'], False, ssh_known_hosts_set, False)
 
     config = client.create_or_update(resource_group_name, cluster_rp, cluster_type, cluster_name,

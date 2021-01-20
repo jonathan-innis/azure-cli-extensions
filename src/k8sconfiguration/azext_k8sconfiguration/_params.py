@@ -46,7 +46,7 @@ def load_arguments(self, _):
                    help='Type of the configuration')
         c.argument('helm_operator_params',
                    help='Chart values for the Helm Operator (if enabled)')
-        c.argument('helm_operator_version',
+        c.argument('helm_operator_chart_version',
                    help='Chart version of the Helm Operator (if enabled)')
         c.argument('operator_params',
                    help='Parameters for the Operator')
