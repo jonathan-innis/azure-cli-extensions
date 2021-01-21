@@ -56,10 +56,11 @@ def show_k8sconfiguration(client, resource_group_name, cluster_name, name, clust
 
 # pylint: disable=too-many-locals
 def create_k8sconfiguration(client, resource_group_name, cluster_name, name, repository_url, scope, cluster_type,
-                            operator_instance_name=None, operator_namespace='default', helm_operator_chart_version='1.2.0',
-                            operator_type='flux', operator_params='', ssh_private_key='', ssh_private_key_file='',
-                            https_user='', https_key='', ssh_known_hosts='', ssh_known_hosts_file='',
-                            enable_helm_operator=None, helm_operator_params=''):
+                            operator_instance_name=None, operator_namespace='default',
+                            helm_operator_chart_version='1.2.0', operator_type='flux', operator_params='',
+                            ssh_private_key='', ssh_private_key_file='', https_user='', https_key='',
+                            ssh_known_hosts='', ssh_known_hosts_file='', enable_helm_operator=None,
+                            helm_operator_params=''):
     """Create a new Kubernetes Source Control Configuration.
 
     """
@@ -80,7 +81,10 @@ def create_k8sconfiguration(client, resource_group_name, cluster_name, name, rep
         helm_operator_properties.chart_version = helm_operator_chart_version.strip()
         helm_operator_properties.chart_values = helm_operator_params.strip()
 
-    protected_settings = validate_and_get_protected_settings(ssh_private_key, ssh_private_key_file, https_user, https_key)
+    protected_settings = validate_and_get_protected_settings(ssh_private_key,
+                                                             ssh_private_key_file,
+                                                             https_user,
+                                                             https_key)
     knownhost_data = get_data_from_key_or_file(ssh_known_hosts, ssh_known_hosts_file)
     if knownhost_data:
         validate_known_hosts(knownhost_data)
@@ -89,9 +93,9 @@ def create_k8sconfiguration(client, resource_group_name, cluster_name, name, rep
     ssh_private_key_set = ssh_private_key != '' or ssh_private_key_file != ''
     known_hosts_contents_set = knownhost_data != ''
     https_auth_set = https_user != '' and https_key != ''
-    validate_url_with_params(repository_url, 
-                             ssh_private_key_set=ssh_private_key_set, 
-                             known_hosts_contents_set=known_hosts_contents_set, 
+    validate_url_with_params(repository_url,
+                             ssh_private_key_set=ssh_private_key_set,
+                             known_hosts_contents_set=known_hosts_contents_set,
                              https_auth_set=https_auth_set)
 
     # Create sourceControlConfiguration object
@@ -165,9 +169,9 @@ def update_k8sconfiguration(client, resource_group_name, cluster_name, name, clu
 
     # Flag which parameters have been set and validate these settings against the set repository url
     known_hosts_contents_set = config.ssh_known_hosts_contents != ""
-    validate_url_with_params(config.repository_url, 
-                             ssh_private_key_set=False, 
-                             known_hosts_contents_set=known_hosts_contents_set, 
+    validate_url_with_params(config.repository_url,
+                             ssh_private_key_set=False,
+                             known_hosts_contents_set=known_hosts_contents_set,
                              https_auth_set=False)
 
     config = client.create_or_update(resource_group_name, cluster_rp, cluster_type, cluster_name,
