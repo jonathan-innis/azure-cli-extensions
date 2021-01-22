@@ -45,8 +45,10 @@ def load_arguments(self, _):
                    arg_type=get_enum_type(['sourceControlConfiguration']),
                    help='Type of the configuration')
         c.argument('helm_operator_params',
+                   options_list=['--helm-operator-params', '--hop-params'],
                    help='Chart values for the Helm Operator (if enabled)')
         c.argument('helm_operator_chart_version',
+                   options_list=['--helm-operator-chart-version', '--hop-chart-version'],
                    help='Chart version of the Helm Operator (if enabled)')
         c.argument('operator_params',
                    help='Parameters for the Operator')
