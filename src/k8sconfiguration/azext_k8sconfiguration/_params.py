@@ -36,6 +36,7 @@ def load_arguments(self, _):
                    help='Url of the source control repository')
         c.argument('enable_helm_operator',
                    arg_type=get_three_state_flag(),
+                   options_list=['--enable-helm-operator, --enable-hop'],
                    help='Enable support for Helm chart deployments')
         c.argument('scope',
                    arg_type=get_enum_type(['namespace', 'cluster']),
