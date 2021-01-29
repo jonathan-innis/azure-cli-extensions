@@ -85,4 +85,3 @@ def load_arguments(self, _):
         c.argument('ssh_known_hosts_file',
                    arg_group="Auth Arguments",
                    help='Specify filepath to known_hosts contents containing public SSH keys required to access private Git instances')
-
