@@ -46,33 +46,43 @@ def load_arguments(self, _):
                    arg_type=get_enum_type(['sourceControlConfiguration']),
                    help='Type of the configuration')
         c.argument('helm_operator_params',
+                   arg_group="Helm Operator Arguments",
                    options_list=['--helm-operator-params', '--hop-params'],
                    help='Chart values for the Helm Operator (if enabled)')
         c.argument('helm_operator_chart_version',
+                   arg_group="Helm Operator Arguments",
                    options_list=['--helm-operator-chart-version', '--hop-chart-version'],
                    help='Chart version of the Helm Operator (if enabled)')
         c.argument('operator_params',
+                   arg_group="Operator Arguments",
                    help='Parameters for the Operator')
-        c.argument('ssh_private_key',
-                   help='Specify Base64-encoded private ssh key for private repository sync')
-        c.argument('ssh_private_key_file',
-                   help='Specify filepath to private ssh key for private repository sync')
-        c.argument('https_user',
-                   help='Specify HTTPS username for private repository sync')
-        c.argument('https_key',
-                   help='Specify HTTPS token/password for private repository sync')
-        c.argument('ssh_known_hosts',
-                   help='Specify Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances')
-        c.argument('ssh_known_hosts_file',
-                   help='Specify filepath to known_hosts contents containing public SSH keys required to access private Git instances')
         c.argument('operator_instance_name',
+                   arg_group="Operator Arguments",
                    help='Instance name of the Operator',
                    validator=validate_operator_instance_name)
         c.argument('operator_namespace',
+                   arg_group="Operator Arguments",
                    help='Namespace in which to install the Operator',
                    validator=validate_operator_namespace)
         c.argument('operator_type',
+                   arg_group="Operator Arguments",
                    help='''Type of the operator. Valid value is 'flux' ''')
+        c.argument('ssh_private_key',
+                   arg_group="Auth Arguments",
+                   help='Specify Base64-encoded private ssh key for private repository sync')
+        c.argument('ssh_private_key_file',
+                   arg_group="Auth Arguments",
+                   help='Specify filepath to private ssh key for private repository sync')
+        c.argument('https_user',
+                   arg_group="Auth Arguments",
+                   help='Specify HTTPS username for private repository sync')
+        c.argument('https_key',
+                   arg_group="Auth Arguments",
+                   help='Specify HTTPS token/password for private repository sync')
+        c.argument('ssh_known_hosts',
+                   arg_group="Auth Arguments",
+                   help='Specify Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances')
+        c.argument('ssh_known_hosts_file',
+                   arg_group="Auth Arguments",
+                   help='Specify filepath to known_hosts contents containing public SSH keys required to access private Git instances')
 
-    with self.argument_context('k8sconfiguration list') as c:
-        c.argument('sourcecontrolconfiguration', sourcecontrolconfiguration_type, id_part=None)
