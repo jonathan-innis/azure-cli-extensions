@@ -3,6 +3,10 @@
 Release History
 ===============
 
+1.0.1
+++++++
+* Pin cryptography version
+
 1.0.0
 ++++++
 * Moving to GA API version
