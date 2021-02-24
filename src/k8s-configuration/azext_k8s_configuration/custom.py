@@ -6,6 +6,7 @@
 import base64
 import io
 from urllib.parse import urlparse
+from azure.cli.core import telemetry
 from azure.cli.core.azclierror import InvalidArgumentValueError, ResourceNotFoundError, \
     RequiredArgumentMissingError, MutuallyExclusiveArgumentError, CommandNotFoundError
 from knack.log import get_logger
@@ -17,7 +18,8 @@ from Crypto.PublicKey import RSA, ECC, DSA
 from azext_k8s_configuration.vendored_sdks.models import SourceControlConfiguration
 from azext_k8s_configuration.vendored_sdks.models import HelmOperatorProperties
 from azext_k8s_configuration.vendored_sdks.models import ErrorResponseException
-from ._validators import validate_configuration_name
+import azext_k8s_configuration._constants as consts
+from azext_k8s_configuration._validators import validate_configuration_name
 
 logger = get_logger(__name__)
 
@@ -51,6 +53,12 @@ def show_k8s_configuration(client, resource_group_name, cluster_name, name, clus
             else:
                 message = ex.message
                 recommendation = ''
+            telemetry.set_user_fault()
+            telemetry.set_exception(
+                exception=message,
+                fault_type=consts.Resource_Does_Not_Exist_Fault_Type,
+                summary='Cluster configuration does not exist'
+            )
             raise ResourceNotFoundError(message, recommendation) from ex
 
 
@@ -231,23 +239,32 @@ def validate_and_get_protected_settings(ssh_private_key, ssh_private_key_file, h
             invalid_ed25519_key = True
 
         if invalid_rsa_key and invalid_ecc_key and invalid_dsa_key and invalid_ed25519_key:
+            telemetry.set_user_fault()
+            telemetry.set_exception(
+                exception=consts.Invalid_Private_Key_Format_Error,
+                fault_type=consts.Invalid_Private_Key_Format_Fault_Type,
+                summary='Invalid ssh private key format'
+            )
             raise InvalidArgumentValueError(
-                'Error! ssh private key provided in invalid format',
-                'Verify the key provided is a valid PEM-formatted key of type RSA, ECC, DSA, or Ed25519')
+                consts.Invalid_Private_Key_Format_Error,
+                consts.Invalid_Private_Key_Format_Help)
         protected_settings["sshPrivateKey"] = ssh_private_key_data
 
     # Check if both httpsUser and httpsKey exist, then add to protected settings
     if https_user != '' and https_key != '':
         protected_settings['httpsUser'] = to_base64(https_user)
         protected_settings['httpsKey'] = to_base64(https_key)
-    elif https_user != '':
+    elif https_user != '' or https_key != '':
+        telemetry.set_user_fault()
+        telemetry.set_exception(
+            exception=consts.Https_Parameter_Missing_Error,
+            fault_type=consts.Https_Parameter_Missing_Fault_Type,
+            summary='Https parameter missing'
+        )
         raise RequiredArgumentMissingError(
-            'Error! --https-user used without --https-key',
-            'Try providing both --https-user and --https-key together')
-    elif https_key != '':
-        raise RequiredArgumentMissingError(
-            'Error! --http-key used without --http-user',
-            'Try providing both --https-user and --https-key together')
+            consts.Https_Parameter_Missing_Error,
+            consts.Https_Parameter_Missing_Help
+        )
 
     return protected_settings
 
@@ -274,27 +291,49 @@ def validate_url_with_params(repository_url, ssh_private_key_set, known_hosts_co
 
     if scheme in ('http', 'https'):
         if ssh_private_key_set:
+            telemetry.set_user_fault()
+            telemetry.set_exception(
+                exception=consts.Ssh_Parameter_Mismatch_Error,
+                fault_type=consts.Ssh_Parameter_Mismatch_Fault_Type,
+                summary='Ssh parameter specified with http(s) url'
+            )
             raise MutuallyExclusiveArgumentError(
-                'Error! An ssh private key cannot be used with an http(s) url',
-                'Verify the url provided is a valid ssh url and not an http(s) url')
+                consts.Ssh_Parameter_Mismatch_Error,
+                consts.Ssh_Parameter_Mismatch_Help
+            )
         if known_hosts_contents_set:
+            telemetry.set_user_fault()
+            telemetry.set_exception(
+                exception=consts.Ssh_Parameter_Mismatch_Error,
+                fault_type=consts.Ssh_Parameter_Mismatch_Fault_Type,
+                summary='Ssh parameter specified with http(s) url'
+            )
             raise MutuallyExclusiveArgumentError(
-                'Error! ssh known_hosts cannot be used with an http(s) url',
-                'Verify the url provided is a valid ssh url and not an http(s) url')
+                consts.Ssh_Parameter_Mismatch_Error,
+                consts.Ssh_Parameter_Mismatch_Help
+            )
         if not https_auth_set and scheme == 'https':
             logger.warning('Warning! https url is being used without https auth params, ensure the repository '
                            'url provided is not a private repo')
     else:
         if https_auth_set:
+            telemetry.set_user_fault()
+            telemetry.set_exception(
+                exception=consts.Https_Parameter_Mismatch_Error,
+                fault_type=consts.Https_Parameter_Mismatch_Fault_Type,
+                summary='Https parameter specified with non-http(s) url'
+            )
             raise MutuallyExclusiveArgumentError(
-                'Error! https auth (--https-user and --https-key) cannot be used with a non-http(s) url',
-                'Verify the url provided is a valid http(s) url and not an ssh url')
+                consts.Https_Parameter_Mismatch_Error,
+                consts.Https_Parameter_Mismatch_Help
+            )
 
 
 def validate_known_hosts(knownhost_data):
     try:
         knownhost_str = from_base64(knownhost_data).decode('utf-8')
     except Exception as ex:
+        telemetry.set_user_fault()
         raise InvalidArgumentValueError(
             'Error! ssh known_hosts is not a valid utf-8 base64 encoded string',
             'Verify that the string provided safely decodes into a valid utf-8 format') from ex
@@ -309,6 +348,7 @@ def validate_known_hosts(knownhost_data):
             if not host_key:
                 raise Exception('not enough fields found in known_hosts line')
         except Exception as ex:
+            telemetry.set_user_fault()
             raise InvalidArgumentValueError(
                 'Error! ssh known_hosts provided in wrong format',
                 'Verify that all lines in the known_hosts contents are provided in a valid sshd(8) format') from ex
@@ -316,6 +356,7 @@ def validate_known_hosts(knownhost_data):
 
 def get_data_from_key_or_file(key, filepath):
     if key != '' and filepath != '':
+        telemetry.set_user_fault()
         raise MutuallyExclusiveArgumentError(
             'Error! Both textual key and key filepath cannot be provided',
             'Try providing the file parameter without providing the plaintext parameter')
@@ -337,6 +378,7 @@ def read_key_file(path):
             raw_data = ''.join(data_list)
         return to_base64(raw_data)
     except Exception as ex:
+        telemetry.set_user_fault()
         raise InvalidArgumentValueError(
             'Error! Unable to read key file specified with: {0}'.format(ex),
             'Verify that the filepath specified exists and contains valid utf-8 data') from ex
