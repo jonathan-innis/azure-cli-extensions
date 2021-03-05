@@ -33,7 +33,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 10 Feb 2021 22:59:01 GMT
+      - Wed, 24 Feb 2021 00:27:36 GMT
       expires:
       - '-1'
       pragma:
@@ -83,18 +83,18 @@ interactions:
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/cli-test-config10","name":"cli-test-config10","type":"Microsoft.KubernetesConfiguration/sourceControlConfigurations","properties":{"operatorNamespace":"cli-test-config10-opns","provisioningState":"Succeeded","complianceStatus":{"complianceState":"Pending","lastConfigApplied":"0001-01-01T00:00:00+00:00","message":"{\"OperatorMessage\":null,\"ClusterState\":null}","messageLevel":"Information"},"enableHelmOperator":true,"helmOperatorProperties":{"chartVersion":"1.2.0","chartValues":"--set
-        git.ssh.secretName=gitops-privatekey-cli-test-config10-opin --set tillerNamespace=kube-system"},"repositoryUrl":"git://github.com/anubhav929/flux-get-started","operatorInstanceName":"cli-test-config10-opin","operatorType":"Flux","operatorScope":"namespace","operatorParams":"--git-readonly","sshKnownHostsContents":"Z2l0b3BzLWJpdGJ1Y2tldC10ZXN0LXNlcnZlci5lYXN0dXMuY2xvdWRhcHAuYXp1cmUuY29tIHNzaC1yc2EgQUFBQUIzTnphQzF5YzJFQUFBQURBUUFCQUFBQkFRQytNT0w3bjk2aGs3emVmMDNwak9vMGF3UENISkZ4NU04TjJ2L2tvODgvc202Y2VzOFljdnYyL0hoUlhRSFZHRUxqZjNuTXVGSVJPMEdMdTFabFNreGRUTUhGcXBxYzFjcUM2R3kveUJXRGM1SWFwWnJBMXFxeSsrZVdpelAzQXdMbWsrMUhXWGdtcHljZUtYNU9vd3VNT3cwd3RYRUdTcDhtVk0wV2VpUzEwWnZ5ZVVKK04zbkNvczMyWDhIeVpnc1pMUS9zSTB4NXN6ODQ2am5JZEFOckZsYU9MUTJ1ejRUa0M2ekNvd3lIdzlLWXJ5V2hJZDAraCt5SXQ5dUtqVHZsWFNpdm1ISjViZzdUWWlkbnFtbjI0UGE4WnFpbTE5UGszUjg0cW9qclVmYm1XT3VwUjdYNXZVVWZqYzhERFRxa3FnRmkxcWdVdE1mWGlMRXErZFVa","configurationProtectedSettings":{},"repositoryPublicKey":""},"systemData":{"createdBy":null,"createdByType":null,"createdAt":"2021-02-10T22:59:03.2209+00:00","lastModifiedBy":null,"lastModifiedByType":null,"lastModifiedAt":"2021-02-10T22:59:03.2209001+00:00"}}'
+        git.ssh.secretName=gitops-privatekey-cli-test-config10-opin --set tillerNamespace=kube-system"},"repositoryUrl":"git://github.com/anubhav929/flux-get-started","operatorInstanceName":"cli-test-config10-opin","operatorType":"Flux","operatorScope":"namespace","operatorParams":"--git-readonly","sshKnownHostsContents":"Z2l0b3BzLWJpdGJ1Y2tldC10ZXN0LXNlcnZlci5lYXN0dXMuY2xvdWRhcHAuYXp1cmUuY29tIHNzaC1yc2EgQUFBQUIzTnphQzF5YzJFQUFBQURBUUFCQUFBQkFRQytNT0w3bjk2aGs3emVmMDNwak9vMGF3UENISkZ4NU04TjJ2L2tvODgvc202Y2VzOFljdnYyL0hoUlhRSFZHRUxqZjNuTXVGSVJPMEdMdTFabFNreGRUTUhGcXBxYzFjcUM2R3kveUJXRGM1SWFwWnJBMXFxeSsrZVdpelAzQXdMbWsrMUhXWGdtcHljZUtYNU9vd3VNT3cwd3RYRUdTcDhtVk0wV2VpUzEwWnZ5ZVVKK04zbkNvczMyWDhIeVpnc1pMUS9zSTB4NXN6ODQ2am5JZEFOckZsYU9MUTJ1ejRUa0M2ekNvd3lIdzlLWXJ5V2hJZDAraCt5SXQ5dUtqVHZsWFNpdm1ISjViZzdUWWlkbnFtbjI0UGE4WnFpbTE5UGszUjg0cW9qclVmYm1XT3VwUjdYNXZVVWZqYzhERFRxa3FnRmkxcWdVdE1mWGlMRXErZFVa","configurationProtectedSettings":{},"repositoryPublicKey":""},"systemData":{"createdBy":null,"createdByType":null,"createdAt":"2021-02-24T00:27:38.3320267+00:00","lastModifiedBy":null,"lastModifiedByType":null,"lastModifiedAt":"2021-02-24T00:27:38.332028+00:00"}}'
     headers:
       api-supported-versions:
       - 2019-11-01-Preview, 2020-07-01-Preview, 2020-10-01-Preview, 2021-03-01
       cache-control:
       - no-cache
       content-length:
-      - '1876'
+      - '1878'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 10 Feb 2021 22:59:02 GMT
+      - Wed, 24 Feb 2021 00:27:37 GMT
       expires:
       - '-1'
       location:
@@ -135,18 +135,18 @@ interactions:
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/cli-test-config10","name":"cli-test-config10","type":"Microsoft.KubernetesConfiguration/sourceControlConfigurations","properties":{"operatorNamespace":"cli-test-config10-opns","provisioningState":"Succeeded","complianceStatus":{"complianceState":"Pending","lastConfigApplied":"0001-01-01T00:00:00+00:00","message":"{\"OperatorMessage\":null,\"ClusterState\":null}","messageLevel":"Information"},"enableHelmOperator":true,"helmOperatorProperties":{"chartVersion":"1.2.0","chartValues":"--set
-        git.ssh.secretName=gitops-privatekey-cli-test-config10-opin --set tillerNamespace=kube-system"},"repositoryUrl":"git://github.com/anubhav929/flux-get-started","operatorInstanceName":"cli-test-config10-opin","operatorType":"Flux","operatorScope":"namespace","operatorParams":"--git-readonly","sshKnownHostsContents":"Z2l0b3BzLWJpdGJ1Y2tldC10ZXN0LXNlcnZlci5lYXN0dXMuY2xvdWRhcHAuYXp1cmUuY29tIHNzaC1yc2EgQUFBQUIzTnphQzF5YzJFQUFBQURBUUFCQUFBQkFRQytNT0w3bjk2aGs3emVmMDNwak9vMGF3UENISkZ4NU04TjJ2L2tvODgvc202Y2VzOFljdnYyL0hoUlhRSFZHRUxqZjNuTXVGSVJPMEdMdTFabFNreGRUTUhGcXBxYzFjcUM2R3kveUJXRGM1SWFwWnJBMXFxeSsrZVdpelAzQXdMbWsrMUhXWGdtcHljZUtYNU9vd3VNT3cwd3RYRUdTcDhtVk0wV2VpUzEwWnZ5ZVVKK04zbkNvczMyWDhIeVpnc1pMUS9zSTB4NXN6ODQ2am5JZEFOckZsYU9MUTJ1ejRUa0M2ekNvd3lIdzlLWXJ5V2hJZDAraCt5SXQ5dUtqVHZsWFNpdm1ISjViZzdUWWlkbnFtbjI0UGE4WnFpbTE5UGszUjg0cW9qclVmYm1XT3VwUjdYNXZVVWZqYzhERFRxa3FnRmkxcWdVdE1mWGlMRXErZFVa","configurationProtectedSettings":{},"repositoryPublicKey":""},"systemData":{"createdBy":null,"createdByType":null,"createdAt":"2021-02-10T22:59:03.2209+00:00","lastModifiedBy":null,"lastModifiedByType":null,"lastModifiedAt":"2021-02-10T22:59:03.2209001+00:00"}}'
+        git.ssh.secretName=gitops-privatekey-cli-test-config10-opin --set tillerNamespace=kube-system"},"repositoryUrl":"git://github.com/anubhav929/flux-get-started","operatorInstanceName":"cli-test-config10-opin","operatorType":"Flux","operatorScope":"namespace","operatorParams":"--git-readonly","sshKnownHostsContents":"Z2l0b3BzLWJpdGJ1Y2tldC10ZXN0LXNlcnZlci5lYXN0dXMuY2xvdWRhcHAuYXp1cmUuY29tIHNzaC1yc2EgQUFBQUIzTnphQzF5YzJFQUFBQURBUUFCQUFBQkFRQytNT0w3bjk2aGs3emVmMDNwak9vMGF3UENISkZ4NU04TjJ2L2tvODgvc202Y2VzOFljdnYyL0hoUlhRSFZHRUxqZjNuTXVGSVJPMEdMdTFabFNreGRUTUhGcXBxYzFjcUM2R3kveUJXRGM1SWFwWnJBMXFxeSsrZVdpelAzQXdMbWsrMUhXWGdtcHljZUtYNU9vd3VNT3cwd3RYRUdTcDhtVk0wV2VpUzEwWnZ5ZVVKK04zbkNvczMyWDhIeVpnc1pMUS9zSTB4NXN6ODQ2am5JZEFOckZsYU9MUTJ1ejRUa0M2ekNvd3lIdzlLWXJ5V2hJZDAraCt5SXQ5dUtqVHZsWFNpdm1ISjViZzdUWWlkbnFtbjI0UGE4WnFpbTE5UGszUjg0cW9qclVmYm1XT3VwUjdYNXZVVWZqYzhERFRxa3FnRmkxcWdVdE1mWGlMRXErZFVa","configurationProtectedSettings":{},"repositoryPublicKey":""},"systemData":{"createdBy":null,"createdByType":null,"createdAt":"2021-02-24T00:27:38.3320267+00:00","lastModifiedBy":null,"lastModifiedByType":null,"lastModifiedAt":"2021-02-24T00:27:38.332028+00:00"}}'
     headers:
       api-supported-versions:
       - 2019-11-01-Preview, 2020-07-01-Preview, 2020-10-01-Preview, 2021-03-01
       cache-control:
       - no-cache
       content-length:
-      - '1876'
+      - '1878'
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 10 Feb 2021 22:59:03 GMT
+      - Wed, 24 Feb 2021 00:27:39 GMT
       expires:
       - '-1'
       pragma:
@@ -188,7 +188,7 @@ interactions:
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/cli-test-config10?api-version=2021-03-01
   response:
     body:
-      string: '{"version":"1.1","content":null,"statusCode":200,"reasonPhrase":"OK","headers":[],"trailingHeaders":[],"requestMessage":null,"isSuccessStatusCode":true}'
+      string: '{"content":null,"statusCode":200,"headers":[],"version":"1.1","reasonPhrase":"OK","trailingHeaders":[],"requestMessage":null,"isSuccessStatusCode":true}'
     headers:
       api-supported-versions:
       - 2019-11-01-Preview, 2020-07-01-Preview, 2020-10-01-Preview, 2021-03-01
@@ -199,7 +199,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 10 Feb 2021 22:59:05 GMT
+      - Wed, 24 Feb 2021 00:27:39 GMT
       expires:
       - '-1'
       pragma:
@@ -253,7 +253,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 10 Feb 2021 22:59:05 GMT
+      - Wed, 24 Feb 2021 00:27:40 GMT
       expires:
       - '-1'
       pragma:
@@ -302,7 +302,7 @@ interactions:
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/cli-test-config11","name":"cli-test-config11","type":"Microsoft.KubernetesConfiguration/sourceControlConfigurations","properties":{"operatorNamespace":"cli-test-config11-opns","provisioningState":"Succeeded","complianceStatus":{"complianceState":"Pending","lastConfigApplied":"0001-01-01T00:00:00+00:00","message":"{\"OperatorMessage\":null,\"ClusterState\":null}","messageLevel":"Information"},"enableHelmOperator":true,"helmOperatorProperties":{"chartVersion":"1.2.0","chartValues":"--set
-        tillerNamespace=kube-system"},"repositoryUrl":"https://github.com/jonathan-innis/helm-operator-get-started-private.git","operatorInstanceName":"cli-test-config11-opin","operatorType":"Flux","operatorScope":"namespace","operatorParams":"--git-readonly","sshKnownHostsContents":"","configurationProtectedSettings":{},"repositoryPublicKey":""},"systemData":{"createdBy":null,"createdByType":null,"createdAt":"2021-02-10T22:59:07.5893423+00:00","lastModifiedBy":null,"lastModifiedByType":null,"lastModifiedAt":"2021-02-10T22:59:07.5893424+00:00"}}'
+        tillerNamespace=kube-system"},"repositoryUrl":"https://github.com/jonathan-innis/helm-operator-get-started-private.git","operatorInstanceName":"cli-test-config11-opin","operatorType":"Flux","operatorScope":"namespace","operatorParams":"--git-readonly","sshKnownHostsContents":"","configurationProtectedSettings":{},"repositoryPublicKey":""},"systemData":{"createdBy":null,"createdByType":null,"createdAt":"2021-02-24T00:27:42.6573458+00:00","lastModifiedBy":null,"lastModifiedByType":null,"lastModifiedAt":"2021-02-24T00:27:42.6573472+00:00"}}'
     headers:
       api-supported-versions:
       - 2019-11-01-Preview, 2020-07-01-Preview, 2020-10-01-Preview, 2021-03-01
@@ -313,7 +313,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 10 Feb 2021 22:59:07 GMT
+      - Wed, 24 Feb 2021 00:27:42 GMT
       expires:
       - '-1'
       location:
@@ -327,7 +327,7 @@ interactions:
       x-content-type-options:
       - nosniff
       x-ms-ratelimit-remaining-subscription-writes:
-      - '1199'
+      - '1198'
     status:
       code: 201
       message: Created
@@ -354,7 +354,7 @@ interactions:
   response:
     body:
       string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/cli-test-config11","name":"cli-test-config11","type":"Microsoft.KubernetesConfiguration/sourceControlConfigurations","properties":{"operatorNamespace":"cli-test-config11-opns","provisioningState":"Succeeded","complianceStatus":{"complianceState":"Pending","lastConfigApplied":"0001-01-01T00:00:00+00:00","message":"{\"OperatorMessage\":null,\"ClusterState\":null}","messageLevel":"Information"},"enableHelmOperator":true,"helmOperatorProperties":{"chartVersion":"1.2.0","chartValues":"--set
-        tillerNamespace=kube-system"},"repositoryUrl":"https://github.com/jonathan-innis/helm-operator-get-started-private.git","operatorInstanceName":"cli-test-config11-opin","operatorType":"Flux","operatorScope":"namespace","operatorParams":"--git-readonly","sshKnownHostsContents":"","configurationProtectedSettings":{},"repositoryPublicKey":""},"systemData":{"createdBy":null,"createdByType":null,"createdAt":"2021-02-10T22:59:07.5893423+00:00","lastModifiedBy":null,"lastModifiedByType":null,"lastModifiedAt":"2021-02-10T22:59:07.5893424+00:00"}}'
+        tillerNamespace=kube-system"},"repositoryUrl":"https://github.com/jonathan-innis/helm-operator-get-started-private.git","operatorInstanceName":"cli-test-config11-opin","operatorType":"Flux","operatorScope":"namespace","operatorParams":"--git-readonly","sshKnownHostsContents":"","configurationProtectedSettings":{},"repositoryPublicKey":""},"systemData":{"createdBy":null,"createdByType":null,"createdAt":"2021-02-24T00:27:42.6573458+00:00","lastModifiedBy":null,"lastModifiedByType":null,"lastModifiedAt":"2021-02-24T00:27:42.6573472+00:00"}}'
     headers:
       api-supported-versions:
       - 2019-11-01-Preview, 2020-07-01-Preview, 2020-10-01-Preview, 2021-03-01
@@ -365,7 +365,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 10 Feb 2021 22:59:08 GMT
+      - Wed, 24 Feb 2021 00:27:43 GMT
       expires:
       - '-1'
       pragma:
@@ -407,7 +407,7 @@ interactions:
     uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/cli-test-config11?api-version=2021-03-01
   response:
     body:
-      string: '{"version":"1.1","content":null,"statusCode":200,"reasonPhrase":"OK","headers":[],"trailingHeaders":[],"requestMessage":null,"isSuccessStatusCode":true}'
+      string: '{"content":null,"statusCode":200,"headers":[],"version":"1.1","reasonPhrase":"OK","trailingHeaders":[],"requestMessage":null,"isSuccessStatusCode":true}'
     headers:
       api-supported-versions:
       - 2019-11-01-Preview, 2020-07-01-Preview, 2020-10-01-Preview, 2021-03-01
@@ -418,7 +418,7 @@ interactions:
       content-type:
       - application/json; charset=utf-8
       date:
-      - Wed, 10 Feb 2021 22:59:08 GMT
+      - Wed, 24 Feb 2021 00:27:44 GMT
       expires:
       - '-1'
       pragma:

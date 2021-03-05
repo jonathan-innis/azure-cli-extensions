@@ -1,0 +1,580 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - python/3.9.0 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.4
+        azure-mgmt-resource/12.0.0 Azure-SDK-For-Python AZURECLI/2.19.1
+      accept-language:
+      - en-US
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923?api-version=2020-01-01-preview
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923","name":"nanthicluster0923","type":"Microsoft.Kubernetes/connectedClusters","location":"eastus2euap","tags":{},"identity":{"principalId":"0b710993-08c0-48b3-80fa-f0329e9f9bd7","tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47","type":"SystemAssigned"},"properties":{"provisioningState":"Succeeded","agentPublicKeyCertificate":"MIICCgKCAgEAmif7drQ+UDaJMfPHlZVPPu+a6wTqOnpgFjc5oLHfz48WnrceZXEdndRojv7xi3qH4urTkbx98AAVmB2xZkaVDQC1cHq1yZod458IUJFalX+sTGXWcGuG0kfdtF7ArJXtRStNzts8HRClmuzGnr04ZQ9RiI019FmzWxMHs5pCr46242e35yFFAxrMEFRP7CuVYiVbtkCBk1iEnUOyA56PGXsdRefGRux88fj8ryLhnrmmSWHSHFW09ibapJ9Vm/dPeCNqkRJ02d06nH9XHluFO84HZ5YXQirMsLnVfsmPmD7dDScn614XpFkrddIXSz5Sh9acKO+xSjPgQlYvgucov7Ab3+rBRIvsp3rYh69mLErF6DIpo7BGyjYMtItg0qIMtAySEAioFXnOANDfq5ECNgRmz9Ns46CiZOQYvsEA5jvwNA6WIADudaXRHVuLBBjnwbg3jDcqoNfY/0FbIU+KhurCoIaJF605lTeI0kePXFfRckvmawzWohM1/l/qihnRwDWQ4wzdi9QG34+NlAc6bWOi/hyau3gcgQc1Ob5Iw0m0gAybTqjeMTZxHboqsT1Mxoysh2P1kjAq4iA+8cuBvV0LpliPw7Jy0qctsgh3GUN7eDAqbi9LBpzzbcZrceOuPjxQau143Fy9NlkvXZaE5zekgLyZQnR2n/dB0hkAPJMCAwEAAQ==","aadProfile":{"tenantId":"","clientAppId":"","serverAppId":""},"kubernetesVersion":"1.15.11","totalNodeCount":3,"agentVersion":"0.2.22"}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '1323'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 02 Mar 2021 00:19:57 GMT
+      etag:
+      - '"0000ae01-0000-3400-0000-5fa5e1ab0000"'
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - python/3.9.0 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.4
+        azure-mgmt-resource/12.0.0 Azure-SDK-For-Python AZURECLI/2.19.1
+      accept-language:
+      - en-US
+    method: HEAD
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/DefaultResourceGroup-EUS?api-version=2020-10-01
+  response:
+    body:
+      string: ''
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '0'
+      date:
+      - Tue, 02 Mar 2021 00:19:57 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 204
+      message: No Content
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - python/3.9.0 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.4
+        azure-mgmt-resource/12.0.0 Azure-SDK-For-Python AZURECLI/2.19.1
+      accept-language:
+      - en-US
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/DefaultResourceGroup-EUS/providers/Microsoft.OperationalInsights/workspaces/DefaultWorkspace-0e750457-5252-493e-95a3-e40e6a460bf0-EUS?api-version=2015-11-01-preview
+  response:
+    body:
+      string: "{\r\n  \"properties\": {\r\n    \"source\": \"Azure\",\r\n    \"customerId\":
+        \"89e3b8e9-1564-410b-bc22-81d1e3055d10\",\r\n    \"provisioningState\": \"Succeeded\",\r\n
+        \   \"sku\": {\r\n      \"name\": \"free\",\r\n      \"maxCapacityReservationLevel\":
+        3000,\r\n      \"lastSkuUpdate\": \"Fri, 13 Nov 2020 18:29:18 GMT\"\r\n    },\r\n
+        \   \"retentionInDays\": 7,\r\n    \"features\": {\r\n      \"legacy\": 0,\r\n
+        \     \"searchVersion\": 1,\r\n      \"enableLogAccessUsingOnlyResourcePermissions\":
+        true\r\n    },\r\n    \"workspaceCapping\": {\r\n      \"dailyQuotaGb\": 0.5,\r\n
+        \     \"quotaNextResetTime\": \"Tue, 02 Mar 2021 19:00:00 GMT\",\r\n      \"dataIngestionStatus\":
+        \"RespectQuota\"\r\n    },\r\n    \"publicNetworkAccessForIngestion\": \"Enabled\",\r\n
+        \   \"publicNetworkAccessForQuery\": \"Enabled\",\r\n    \"createdDate\":
+        \"Fri, 18 Sep 2020 15:42:06 GMT\",\r\n    \"modifiedDate\": \"Tue, 23 Feb
+        2021 14:47:34 GMT\"\r\n  },\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus\",\r\n
+        \ \"name\": \"DefaultWorkspace-0e750457-5252-493e-95a3-e40e6a460bf0-EUS\",\r\n
+        \ \"type\": \"Microsoft.OperationalInsights/workspaces\",\r\n  \"location\":
+        \"eastus\"\r\n}"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '1194'
+      content-type:
+      - application/json
+      date:
+      - Tue, 02 Mar 2021 00:19:57 GMT
+      pragma:
+      - no-cache
+      server:
+      - Microsoft-IIS/10.0
+      - Microsoft-IIS/10.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - ASP.NET
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - python/3.9.0 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.4
+        azure-mgmt-resource/12.0.0 Azure-SDK-For-Python AZURECLI/2.19.1
+      accept-language:
+      - en-US
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus?api-version=2015-11-01-preview
+  response:
+    body:
+      string: "{\r\n  \"properties\": {\r\n    \"source\": \"Azure\",\r\n    \"customerId\":
+        \"89e3b8e9-1564-410b-bc22-81d1e3055d10\",\r\n    \"provisioningState\": \"Succeeded\",\r\n
+        \   \"sku\": {\r\n      \"name\": \"free\",\r\n      \"maxCapacityReservationLevel\":
+        3000,\r\n      \"lastSkuUpdate\": \"Fri, 13 Nov 2020 18:29:18 GMT\"\r\n    },\r\n
+        \   \"retentionInDays\": 7,\r\n    \"features\": {\r\n      \"legacy\": 0,\r\n
+        \     \"searchVersion\": 1,\r\n      \"enableLogAccessUsingOnlyResourcePermissions\":
+        true\r\n    },\r\n    \"workspaceCapping\": {\r\n      \"dailyQuotaGb\": 0.5,\r\n
+        \     \"quotaNextResetTime\": \"Tue, 02 Mar 2021 19:00:00 GMT\",\r\n      \"dataIngestionStatus\":
+        \"RespectQuota\"\r\n    },\r\n    \"publicNetworkAccessForIngestion\": \"Enabled\",\r\n
+        \   \"publicNetworkAccessForQuery\": \"Enabled\",\r\n    \"createdDate\":
+        \"Fri, 18 Sep 2020 15:42:06 GMT\",\r\n    \"modifiedDate\": \"Tue, 23 Feb
+        2021 14:47:34 GMT\"\r\n  },\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus\",\r\n
+        \ \"name\": \"DefaultWorkspace-0e750457-5252-493e-95a3-e40e6a460bf0-EUS\",\r\n
+        \ \"type\": \"Microsoft.OperationalInsights/workspaces\",\r\n  \"location\":
+        \"eastus\"\r\n}"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '1194'
+      content-type:
+      - application/json
+      date:
+      - Tue, 02 Mar 2021 00:19:58 GMT
+      pragma:
+      - no-cache
+      server:
+      - Microsoft-IIS/10.0
+      - Microsoft-IIS/10.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - ASP.NET
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties": {"template": {"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0", "parameters": {"workspaceResourceId": {"type":
+      "string", "metadata": {"description": "Azure Monitor Log Analytics Resource
+      ID"}}, "workspaceRegion": {"type": "string", "metadata": {"description": "Azure
+      Monitor Log Analytics workspace region"}}, "solutionDeploymentName": {"type":
+      "string", "metadata": {"description": "Name of the solution deployment"}}},
+      "resources": [{"type": "Microsoft.Resources/deployments", "name": "[parameters(''solutionDeploymentName'')]",
+      "apiVersion": "2017-05-10", "subscriptionId": "[split(parameters(''workspaceResourceId''),''/'')[2]]",
+      "resourceGroup": "[split(parameters(''workspaceResourceId''),''/'')[4]]", "properties":
+      {"mode": "Incremental", "template": {"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0", "parameters": {}, "variables": {}, "resources":
+      [{"apiVersion": "2015-11-01-preview", "type": "Microsoft.OperationsManagement/solutions",
+      "location": "[parameters(''workspaceRegion'')]", "name": "[Concat(''ContainerInsights'',
+      ''('', split(parameters(''workspaceResourceId''),''/'')[8], '')'')]", "properties":
+      {"workspaceResourceId": "[parameters(''workspaceResourceId'')]"}, "plan": {"name":
+      "[Concat(''ContainerInsights'', ''('', split(parameters(''workspaceResourceId''),''/'')[8],
+      '')'')]", "product": "[Concat(''OMSGallery/'', ''ContainerInsights'')]", "promotionCode":
+      "", "publisher": "Microsoft"}}]}, "parameters": {}}}]}, "parameters": {"workspaceResourceId":
+      {"value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus"},
+      "workspaceRegion": {"value": "eastus"}, "solutionDeploymentName": {"value":
+      "ContainerInsights-1614644399819"}}, "mode": "Incremental"}}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1953'
+      Content-Type:
+      - application/json; charset=utf-8
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - python/3.9.0 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.4
+        azure-mgmt-resource/12.0.0 Azure-SDK-For-Python AZURECLI/2.19.1
+      accept-language:
+      - en-US
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/Microsoft.Resources/deployments/mock-deployment?api-version=2020-10-01
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/defaultresourcegroup-eus/providers/Microsoft.Resources/deployments/arc-k8s-monitoring-1614644399819","name":"arc-k8s-monitoring-1614644399819","type":"Microsoft.Resources/deployments","properties":{"templateHash":"13112976782773545168","parameters":{"workspaceResourceId":{"type":"String","value":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus"},"workspaceRegion":{"type":"String","value":"eastus"},"solutionDeploymentName":{"type":"String","value":"ContainerInsights-1614644399819"}},"mode":"Incremental","provisioningState":"Accepted","timestamp":"2021-03-02T00:20:00.6356677Z","duration":"PT1.01313S","correlationId":"a6d60de8-3f21-41f0-804e-b0ef4433a457","providers":[{"namespace":"Microsoft.Resources","resourceTypes":[{"resourceType":"deployments","locations":[null]}]}],"dependencies":[]}}'
+    headers:
+      azure-asyncoperation:
+      - https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/Microsoft.Resources/deployments/arc-k8s-monitoring-1614644399819/operationStatuses/08585869624858550895?api-version=2020-10-01
+      cache-control:
+      - no-cache
+      content-length:
+      - '1025'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 02 Mar 2021 00:20:00 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1199'
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - AZURECLI/2.19.1 azsdk-python-mgmt-loganalytics/8.0.0 Python/3.9.0 (Windows-10-10.0.19041-SP0)
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/Microsoft.OperationalInsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus?api-version=2020-08-01
+  response:
+    body:
+      string: "{\r\n  \"properties\": {\r\n    \"source\": \"Azure\",\r\n    \"customerId\":
+        \"89e3b8e9-1564-410b-bc22-81d1e3055d10\",\r\n    \"provisioningState\": \"Succeeded\",\r\n
+        \   \"sku\": {\r\n      \"name\": \"free\",\r\n      \"maxCapacityReservationLevel\":
+        3000,\r\n      \"lastSkuUpdate\": \"Fri, 13 Nov 2020 18:29:18 GMT\"\r\n    },\r\n
+        \   \"retentionInDays\": 7,\r\n    \"features\": {\r\n      \"legacy\": 0,\r\n
+        \     \"searchVersion\": 1,\r\n      \"enableLogAccessUsingOnlyResourcePermissions\":
+        true\r\n    },\r\n    \"workspaceCapping\": {\r\n      \"dailyQuotaGb\": 0.5,\r\n
+        \     \"quotaNextResetTime\": \"Tue, 02 Mar 2021 19:00:00 GMT\",\r\n      \"dataIngestionStatus\":
+        \"RespectQuota\"\r\n    },\r\n    \"publicNetworkAccessForIngestion\": \"Enabled\",\r\n
+        \   \"publicNetworkAccessForQuery\": \"Enabled\",\r\n    \"createdDate\":
+        \"Fri, 18 Sep 2020 15:42:06 GMT\",\r\n    \"modifiedDate\": \"Tue, 23 Feb
+        2021 14:47:34 GMT\"\r\n  },\r\n  \"id\": \"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus\",\r\n
+        \ \"name\": \"DefaultWorkspace-0e750457-5252-493e-95a3-e40e6a460bf0-EUS\",\r\n
+        \ \"type\": \"Microsoft.OperationalInsights/workspaces\",\r\n  \"location\":
+        \"eastus\"\r\n}"
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '1194'
+      content-type:
+      - application/json
+      date:
+      - Tue, 02 Mar 2021 00:20:01 GMT
+      pragma:
+      - no-cache
+      server:
+      - Microsoft-IIS/10.0
+      - Microsoft-IIS/10.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-powered-by:
+      - ASP.NET
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '0'
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - AZURECLI/2.19.1 azsdk-python-mgmt-loganalytics/8.0.0 Python/3.9.0 (Windows-10-10.0.19041-SP0)
+    method: POST
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/Microsoft.OperationalInsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus/sharedKeys?api-version=2020-08-01
+  response:
+    body:
+      string: "{\r\n  \"primarySharedKey\": \"K3CNGvhhya4NgY8YkIDSTbmIl2R+79n0dl+fyQOom31Bxh4XvqLx/ckmvCxlMPallXx6llr/Of230bWDlz75AA==\",\r\n
+        \ \"secondarySharedKey\": \"GH7/bkorGq74/f8tfAI2ANWSEpHh2XaP7eIsqOmnmirmwI91JyPPGLeGKBbCIqS9KdasGEu7YR3xkAKuW5JOoA==\"\r\n}"
+    headers:
+      cache-control:
+      - no-cache
+      cachecontrol:
+      - no-cache
+      content-length:
+      - '235'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 02 Mar 2021 00:20:01 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Microsoft-IIS/10.0
+      - Microsoft-IIS/10.0
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-ams-apiversion:
+      - WebAPI1.0
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1199'
+      x-powered-by:
+      - ASP.NET
+      - ASP.NET
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - python/3.9.0 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.4
+        azure-mgmt-resource/12.0.0 Azure-SDK-For-Python AZURECLI/2.19.1
+      accept-language:
+      - en-US
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923?api-version=2020-01-01-preview
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923","name":"nanthicluster0923","type":"Microsoft.Kubernetes/connectedClusters","location":"eastus2euap","tags":{},"identity":{"principalId":"0b710993-08c0-48b3-80fa-f0329e9f9bd7","tenantId":"72f988bf-86f1-41af-91ab-2d7cd011db47","type":"SystemAssigned"},"properties":{"provisioningState":"Succeeded","agentPublicKeyCertificate":"MIICCgKCAgEAmif7drQ+UDaJMfPHlZVPPu+a6wTqOnpgFjc5oLHfz48WnrceZXEdndRojv7xi3qH4urTkbx98AAVmB2xZkaVDQC1cHq1yZod458IUJFalX+sTGXWcGuG0kfdtF7ArJXtRStNzts8HRClmuzGnr04ZQ9RiI019FmzWxMHs5pCr46242e35yFFAxrMEFRP7CuVYiVbtkCBk1iEnUOyA56PGXsdRefGRux88fj8ryLhnrmmSWHSHFW09ibapJ9Vm/dPeCNqkRJ02d06nH9XHluFO84HZ5YXQirMsLnVfsmPmD7dDScn614XpFkrddIXSz5Sh9acKO+xSjPgQlYvgucov7Ab3+rBRIvsp3rYh69mLErF6DIpo7BGyjYMtItg0qIMtAySEAioFXnOANDfq5ECNgRmz9Ns46CiZOQYvsEA5jvwNA6WIADudaXRHVuLBBjnwbg3jDcqoNfY/0FbIU+KhurCoIaJF605lTeI0kePXFfRckvmawzWohM1/l/qihnRwDWQ4wzdi9QG34+NlAc6bWOi/hyau3gcgQc1Ob5Iw0m0gAybTqjeMTZxHboqsT1Mxoysh2P1kjAq4iA+8cuBvV0LpliPw7Jy0qctsgh3GUN7eDAqbi9LBpzzbcZrceOuPjxQau143Fy9NlkvXZaE5zekgLyZQnR2n/dB0hkAPJMCAwEAAQ==","aadProfile":{"tenantId":"","clientAppId":"","serverAppId":""},"kubernetesVersion":"1.15.11","totalNodeCount":3,"agentVersion":"0.2.22"}}'
+    headers:
+      cache-control:
+      - no-cache
+      content-length:
+      - '1323'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 02 Mar 2021 00:20:01 GMT
+      etag:
+      - '"0000ae01-0000-3400-0000-5fa5e1ab0000"'
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - Kestrel
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties": {"extensionType": "microsoft.azuremonitor.containers", "scope":
+      {"cluster": {"releaseNamespace": "azuremonitor-containers"}}, "configurationSettings":
+      {"logAnalyticsWorkspaceResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus"},
+      "configurationProtectedSettings": {"omsagent.secret.wsid": "89e3b8e9-1564-410b-bc22-81d1e3055d10",
+      "omsagent.secret.key": "K3CNGvhhya4NgY8YkIDSTbmIl2R+79n0dl+fyQOom31Bxh4XvqLx/ckmvCxlMPallXx6llr/Of230bWDlz75AA=="}},
+      "identity": {"type": "SystemAssigned"}, "location": "eastus2euap"}'
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension create
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '689'
+      Content-Type:
+      - application/json; charset=utf-8
+      ParameterSetName:
+      - -g -n -c --cluster-type --extension-type
+      User-Agent:
+      - python/3.9.0 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.4
+        azure-mgmt-kubernetesconfiguration/0.1.0 Azure-SDK-For-Python AZURECLI/2.19.1
+      accept-language:
+      - en-US
+    method: PUT
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/extensions/azuremonitor-containers?api-version=2020-07-01-preview
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/extensions/azuremonitor-containers","name":"azuremonitor-containers","type":"Microsoft.KubernetesConfiguration/extensions","properties":{"configurationSettings":{"logAnalyticsWorkspaceResourceID":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus"},"statuses":[],"extensionType":"microsoft.azuremonitor.containers","autoUpgradeMinorVersion":true,"releaseTrain":"Stable","version":"2.8.6","scope":{"cluster":{"releaseNamespace":"azuremonitor-containers"}},"installState":"Pending","lastStatusTime":null,"errorInfo":{},"creationTime":"2021-02-24T01:15:54.4475845+00:00","lastModifiedTime":"2021-03-02T00:20:05.1534019+00:00"},"identity":{"type":"SystemAssigned"}}'
+    headers:
+      api-supported-versions:
+      - 2020-07-01-Preview
+      cache-control:
+      - no-cache
+      content-length:
+      - '1010'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 02 Mar 2021 00:20:04 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - openresty/1.15.8.2
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Accept-Encoding
+      x-content-type-options:
+      - nosniff
+      x-ms-ratelimit-remaining-subscription-writes:
+      - '1199'
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      CommandName:
+      - k8s-extension show
+      Connection:
+      - keep-alive
+      ParameterSetName:
+      - -c -g -n --cluster-type
+      User-Agent:
+      - python/3.9.0 (Windows-10-10.0.19041-SP0) msrest/0.6.21 msrest_azure/0.6.4
+        azure-mgmt-kubernetesconfiguration/0.1.0 Azure-SDK-For-Python AZURECLI/2.19.1
+      accept-language:
+      - en-US
+    method: GET
+    uri: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/extensions/azuremonitor-containers?api-version=2020-07-01-preview
+  response:
+    body:
+      string: '{"id":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/nanthirg0923/providers/Microsoft.Kubernetes/connectedClusters/nanthicluster0923/providers/Microsoft.KubernetesConfiguration/extensions/azuremonitor-containers","name":"azuremonitor-containers","type":"Microsoft.KubernetesConfiguration/extensions","properties":{"configurationSettings":{"logAnalyticsWorkspaceResourceID":"/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/defaultresourcegroup-eus/providers/microsoft.operationalinsights/workspaces/defaultworkspace-0e750457-5252-493e-95a3-e40e6a460bf0-eus"},"statuses":[],"extensionType":"microsoft.azuremonitor.containers","autoUpgradeMinorVersion":true,"releaseTrain":"Stable","version":"2.8.6","scope":{"cluster":{"releaseNamespace":"azuremonitor-containers"}},"installState":"Pending","lastStatusTime":null,"errorInfo":{},"creationTime":"2021-02-24T01:15:54.4475845+00:00","lastModifiedTime":"2021-03-02T00:20:05.1534019+00:00"},"identity":{"type":"SystemAssigned"}}'
+    headers:
+      api-supported-versions:
+      - 2020-07-01-Preview
+      cache-control:
+      - no-cache
+      content-length:
+      - '1010'
+      content-type:
+      - application/json; charset=utf-8
+      date:
+      - Tue, 02 Mar 2021 00:20:06 GMT
+      expires:
+      - '-1'
+      pragma:
+      - no-cache
+      server:
+      - openresty/1.15.8.2
+      strict-transport-security:
+      - max-age=31536000; includeSubDomains
+      transfer-encoding:
+      - chunked
+      vary:
+      - Accept-Encoding,Accept-Encoding
+      x-content-type-options:
+      - nosniff
+    status:
+      code: 200
+      message: OK
+version: 1
